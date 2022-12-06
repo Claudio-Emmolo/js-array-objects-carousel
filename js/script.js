@@ -33,23 +33,29 @@ const images = [
 
 const carouselElement = document.querySelector("div.carousel-image");
 
-
-images.forEach((img)=>{
-   const divElement = document.createElement ("div");
-   divElement.innerHTML = `<img src="${img.image}">`
-   divElement.classList.add("my_carousel-item");
-   carouselElement.append(divElement);
-});
-
-
 const previousBtn = document.querySelector("div.previous");
 
 const nextBtn = document.querySelector("div.next");
 
+let imgCounter = 0;
+
 previousBtn.addEventListener('click', function(){
-   console.log('Indietro')
+   imgCounter = imgCounter - 1;
 });
 
 nextBtn.addEventListener('click', function(){
-   console.log('Avanti')
+   imgCounter += 1;
 });
+
+
+images.forEach((img, index)=>{
+   const divElement = document.createElement ("div");
+   divElement.innerHTML = `<img src="${img.image}">`
+   divElement.classList.add("my_carousel-item");
+   carouselElement.append(divElement);
+   
+   if (imgCounter == index){
+      divElement.classList.add("active");
+   }
+});
+
