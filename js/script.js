@@ -37,6 +37,8 @@ const previousBtn = document.querySelector("div.previous");
 
 const nextBtn = document.querySelector("div.next");
 
+const divCounter = [];
+
 let imgCounter = 0;
 
 previousBtn.addEventListener('click', function(){
@@ -47,13 +49,15 @@ nextBtn.addEventListener('click', function(){
    imgCounter += 1;
 });
 
-
 images.forEach((img, index)=>{
    const divElement = document.createElement ("div");
    divElement.innerHTML = `<img src="${img.image}">`
    divElement.classList.add("my_carousel-item");
    carouselElement.append(divElement);
-   
+   divCounter.push(divElement);
+});
+
+divCounter.forEach((count, index)=>{
    if (imgCounter == index){
       divElement.classList.add("active");
    }
