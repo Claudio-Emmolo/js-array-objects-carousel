@@ -49,7 +49,7 @@ if (imgCounter > 4){
 previousBtn.addEventListener('click', function(){
    divCounter[imgCounter].classList.remove("active");
    if ((imgCounter === 0)){
-      imgCounter = 5;
+      imgCounter = divCounter.length;
    }
    imgCounter = imgCounter - 1;
    divCounter[imgCounter].classList.add("active");
@@ -59,17 +59,24 @@ previousBtn.addEventListener('click', function(){
 nextBtn.addEventListener('click', function(){
    divCounter[imgCounter].classList.remove("active");
    imgCounter += 1;
-   if ((imgCounter === 5)){
+   if ((imgCounter === divCounter.length)){
       imgCounter = 0;
    }
    divCounter[imgCounter].classList.add("active");
    console.log(imgCounter);
+   
 });
 
 
 images.forEach((img, index)=>{
    const divElement = document.createElement ("div");
-   divElement.innerHTML = `<img src="${img.image}">`
+   divElement.innerHTML = `
+   <img src="${img.image}">
+   <div class="title-carousel">
+      <h1>${img.title}</h1>
+      <p>${img.text}</p>
+   </div>
+   `
    divElement.classList.add("my_carousel-item");
    carouselElement.append(divElement);
    divCounter.push(divElement);

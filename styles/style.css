@@ -63,3 +63,11 @@ div.my_carousel-item img{
     object-fit: cover;
     object-position: center;
 }
+
+div.title-carousel{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.466);
+}
