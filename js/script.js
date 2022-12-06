@@ -42,12 +42,19 @@ const divCounter = [];
 let imgCounter = 0;
 
 previousBtn.addEventListener('click', function(){
+   divCounter[imgCounter].classList.remove("active");
    imgCounter = imgCounter - 1;
+   divCounter[imgCounter].classList.add("active");
+   console.log(imgCounter);
 });
 
 nextBtn.addEventListener('click', function(){
+   divCounter[imgCounter].classList.remove("active");
    imgCounter += 1;
+   divCounter[imgCounter].classList.add("active");
+   console.log(imgCounter);
 });
+
 
 images.forEach((img, index)=>{
    const divElement = document.createElement ("div");
@@ -55,11 +62,5 @@ images.forEach((img, index)=>{
    divElement.classList.add("my_carousel-item");
    carouselElement.append(divElement);
    divCounter.push(divElement);
+   divCounter[0].classList.add("active");
 });
-
-divCounter.forEach((count, index)=>{
-   if (imgCounter == index){
-      divElement.classList.add("active");
-   }
-});
-
