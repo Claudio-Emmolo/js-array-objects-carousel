@@ -31,11 +31,25 @@ const images = [
 // <img src="./img/01.webp" alt="First image">
 // </div> -->
 
-const carouselElement = document.querySelector("div.carousel-image")
+const carouselElement = document.querySelector("div.carousel-image");
+
 
 images.forEach((img)=>{
    const divElement = document.createElement ("div");
    divElement.innerHTML = `<img src="${img.image}">`
    divElement.classList.add("my_carousel-item");
    carouselElement.append(divElement);
-})
+});
+
+
+const previousBtn = document.querySelector("div.previous");
+
+const nextBtn = document.querySelector("div.next");
+
+previousBtn.addEventListener('click', function(){
+   console.log('Indietro')
+});
+
+nextBtn.addEventListener('click', function(){
+   console.log('Avanti')
+});
