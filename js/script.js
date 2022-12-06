@@ -61,11 +61,9 @@ nextBtn.addEventListener('click', function(){
    imgCounter += 1;
    if ((imgCounter === 5)){
       imgCounter = 0;
-      divCounter[0].classList.add("active");
    }
    divCounter[imgCounter].classList.add("active");
    console.log(imgCounter);
-   
 });
 
 
