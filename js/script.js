@@ -41,8 +41,16 @@ const divCounter = [];
 
 let imgCounter = 0;
 
+if (imgCounter > 4){
+   imgCounter = 0;
+}
+
+
 previousBtn.addEventListener('click', function(){
    divCounter[imgCounter].classList.remove("active");
+   if ((imgCounter === 0)){
+      imgCounter = 5;
+   }
    imgCounter = imgCounter - 1;
    divCounter[imgCounter].classList.add("active");
    console.log(imgCounter);
@@ -51,8 +59,13 @@ previousBtn.addEventListener('click', function(){
 nextBtn.addEventListener('click', function(){
    divCounter[imgCounter].classList.remove("active");
    imgCounter += 1;
+   if ((imgCounter === 5)){
+      imgCounter = 0;
+      divCounter[0].classList.add("active");
+   }
    divCounter[imgCounter].classList.add("active");
    console.log(imgCounter);
+   
 });
 
 
